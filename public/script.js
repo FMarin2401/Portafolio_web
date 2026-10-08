@@ -32,3 +32,28 @@ nav.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') setMenu(false);
 });
+
+/* ---------- Sección activa al hacer scroll ---------- */
+const sections = document.querySelectorAll('main section[id]');
+const navLinks = document.querySelectorAll('.nav__link');
+
+function setActiveLink(id) {
+  navLinks.forEach((link) => {
+    if (link.getAttribute('href') === `#${id}`) {
+      link.setAttribute('aria-current', 'location');
+    } else {
+      link.removeAttribute('aria-current');
+    }
+  });
+}
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) setActiveLink(entry.target.id);
+    });
+  },
+  { rootMargin: '-40% 0px -55% 0px' }
+);
+
+sections.forEach((section) => observer.observe(section));

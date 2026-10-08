@@ -277,7 +277,7 @@ em { color: var(--color-walnut); font-style: normal; font-weight: 600; }
   transition: color .2s, background-color .2s;
 }
 .nav__link:hover,
-.nav__link[aria-current="page"] {
+.nav__link[aria-current="location"] {
   background: var(--color-sand);
   color: var(--color-espresso);
   text-decoration: none;
