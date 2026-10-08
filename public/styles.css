@@ -2,12 +2,15 @@
    Portafolio — Francisco Marín-Castillo
    Paleta: crema/marfil + café madera
    Arquitectura: tokens → base → layout → componentes
-   Convención: BEM  (.bloque__elemento--modificador)
+   Convención: BEM (.bloque__elemento--modificador)
    ========================================================== */
 
 /* 1. Tokens */
 :root {
   /* Color */
+  color-scheme: light;
+  --color-on-accent: #ffffff;                 /* texto sobre botones de acento */
+  --color-header-bg: rgba(251, 247, 240, .9); /* fondo translúcido del header */
   --color-ivory: #fbf7f0;      /* fondo general */
   --color-white: #ffffff;      /* tarjetas */
   --color-sand: #f1e8da;       /* chips, hover suave */
@@ -33,7 +36,24 @@
   --shadow-soft: 0 6px 20px rgba(94, 61, 36, .08);
 }
 
-/* 2. Base (solo elementos, sin clases)*/
+/* Tema Oscuro */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-ivory: #1a1411;
+  --color-white: #241b16;
+  --color-sand: #302419;
+  --color-border: #44352a;
+  --color-oak: #c19a6b;
+  --color-walnut: #d9b184;
+  --color-walnut-dark: #e8c9a3;
+  --color-espresso: #f3ebe0;
+  --color-muted: #b8a695;
+  --color-on-accent: #1a1411;
+  --color-header-bg: rgba(26, 20, 17, .9);
+  --shadow-soft: 0 6px 20px rgba(0, 0, 0, .35);
+}
+
+/* 2. Base (solo elementos, sin clases) */
 *, *::before, *::after { box-sizing: border-box; }
 
 html {
@@ -70,7 +90,7 @@ h4 { font-size: .9rem; font-weight: 600; }
 p { margin: 0 0 1em; }
 em { color: var(--color-walnut); font-style: normal; font-weight: 600; }
 
-/* 3. Layout*/
+/* 3. Layout */
 .container {
   width: 100%;
   max-width: var(--max-width);
@@ -109,12 +129,12 @@ em { color: var(--color-walnut); font-style: normal; font-weight: 600; }
   z-index: 200;
   padding: .6rem 1rem;
   background: var(--color-walnut);
-  color: var(--color-white);
+  color: var(--color-on-accent);
   border-radius: var(--radius);
 }
 .skip-link:focus { top: var(--space-2); }
 
-/* 4. Componentes*/
+/* 4. Componentes */
 
 /* Botón */
 .button {
@@ -126,13 +146,58 @@ em { color: var(--color-walnut); font-style: normal; font-weight: 600; }
   transition: background-color .2s, color .2s;
 }
 .button:hover { text-decoration: none; }
-.button--primary { background: var(--color-walnut); color: var(--color-white); }
+.button--primary { background: var(--color-walnut); color: var(--color-on-accent); }
 .button--primary:hover { background: var(--color-walnut-dark); border-color: var(--color-walnut-dark); }
 .button--outline { background: transparent; color: var(--color-walnut); }
-.button--outline:hover { background: var(--color-walnut); color: var(--color-white); }
+.button--outline:hover { background: var(--color-walnut); color: var(--color-on-accent); }
 .button--small { padding: .4rem 1rem; font-size: .9rem; }
 
-/* Tarjeta genérica (se reutiliza en rasgos, proyectos, habilidades, contacto) */
+/* Botones de Icono (Toggle Tema / Menú Hamburguesa) */
+.icon-button {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-espresso);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color .2s;
+}
+.icon-button:hover { background: var(--color-sand); }
+.js .theme-toggle { display: inline-flex; }
+
+/* Icono del cambio de tema */
+.theme-toggle::before { content: "🌙"; }
+:root[data-theme="dark"] .theme-toggle::before { content: "☀️"; }
+
+/* Icono hamburguesa: una barra + dos pseudo-elementos */
+.nav-toggle__icon,
+.nav-toggle__icon::before,
+.nav-toggle__icon::after {
+  display: block;
+  width: 1.2rem;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform .2s, background-color .2s;
+}
+.nav-toggle__icon { position: relative; }
+.nav-toggle__icon::before,
+.nav-toggle__icon::after { content: ""; position: absolute; left: 0; }
+.nav-toggle__icon::before { top: -6px; }
+.nav-toggle__icon::after { top: 6px; }
+
+/* Icono abierto: se convierte en una X */
+.nav-toggle[aria-expanded="true"] .nav-toggle__icon { background: transparent; }
+.nav-toggle[aria-expanded="true"] .nav-toggle__icon::before { transform: translateY(6px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .nav-toggle__icon::after { transform: translateY(-6px) rotate(-45deg); }
+
+/* Tarjeta genérica */
 .card {
   background: var(--color-white);
   border: 1px solid var(--color-border);
@@ -163,7 +228,7 @@ em { color: var(--color-walnut); font-style: normal; font-weight: 600; }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(251, 247, 240, .9);
+  background: var(--color-header-bg);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--color-border);
 }
@@ -175,6 +240,7 @@ em { color: var(--color-walnut); font-style: normal; font-weight: 600; }
   gap: var(--space-2);
   padding-block: .8rem;
 }
+.site-header__actions { display: flex; align-items: center; gap: .6rem; }
 
 .brand {
   color: var(--color-espresso);
@@ -234,7 +300,6 @@ em { color: var(--color-walnut); font-style: normal; font-weight: 600; }
   object-fit: cover;
   border: 2px solid var(--color-oak);
   border-radius: 24px;
-  /* marco de madera desplazado */
   box-shadow: 14px 14px 0 var(--color-sand), 14px 14px 0 2px var(--color-oak);
 }
 
@@ -350,7 +415,12 @@ em { color: var(--color-walnut); font-style: normal; font-weight: 600; }
 }
 
 @media (max-width: 640px) {
-  .site-header__inner { justify-content: center; }
+  .site-header__cv { display: none; }
+  .js .nav-toggle { display: inline-flex; }
+  .js .nav { display: none; order: 3; width: 100%; }
+  .js .nav--open { display: block; }
+  .js .nav--open .nav__list { flex-direction: column; }
+  
   .nav__list { justify-content: center; }
   .section { padding-block: var(--space-4); }
   .contact-card__list { grid-template-columns: 1fr; gap: .1rem; }
