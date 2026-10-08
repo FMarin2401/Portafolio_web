@@ -7,13 +7,12 @@
   <meta name="theme-color" content="#fbf7f0">
 
   <!-- SEO básico -->
-  <title>Francisco Marín-Castillo | Estudiante de Ingeniería en Inteligencia Artificial</title>
-  <meta name="description"
-    content="Portafolio de Francisco Marín-Castillo, estudiante de Ingeniería en Inteligencia Artificial en la Universidad Iberoamericana León. Proyectos en machine learning, desarrollo web y automatización industrial.">
+  <title>Francisco Marin Castillo | Estudiante de Ingeniería en Inteligencia Artificial</title>
+  <meta name="description" content="Portafolio de Francisco Marín-Castillo: estudiante de Ingeniería en IA y desarrollador web en León, Gto. Proyectos de machine learning, React y automatización.">
   <meta name="author" content="Francisco Marín-Castillo">
   <meta name="robots" content="index, follow">
 
-  <!-- Open Graph (completar og:image y og:url cuando haya dominio) -->
+  <!-- Open Graph -->
   <link rel="canonical" href="https://frankmarincas.dev/">
   <meta property="og:url" content="https://frankmarincas.dev/">
   <meta property="og:title" content="Francisco Marín-Castillo - Ingeniería en Inteligencia Artificial">
@@ -26,6 +25,28 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Francisco Marín-Castillo - Ingeniería en IA">
   <meta name="twitter:description" content="Portafolio de proyectos de IA, desarrollo web y automatización.">
+
+  <!-- Datos Estructurados Schema.org (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Francisco Marín-Castillo",
+    "url": "https://frankmarincas.dev/",
+    "image": "https://frankmarincas.dev/assets/images/Francisco.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "León",
+      "addressRegion": "Guanajuato",
+      "addressCountry": "MX"
+    },
+    "knowsAbout": ["Inteligencia artificial", "Machine learning", "Desarrollo web", "Automatización industrial"],
+    "sameAs": [
+      "https://github.com/FMarin2401",
+      "https://www.linkedin.com/in/francisco-marin-cast"
+    ]
+  }
+  </script>
 
   <script src="theme-init.js"></script>
   <link rel="stylesheet" href="styles.css">
@@ -50,7 +71,6 @@
         </ul>
       </nav>
 
-      <!-- 2. Reemplaza el <a> del CV por este bloque -->
       <div class="site-header__actions">
         <a class="button button--outline button--small site-header__cv"
           href="assets/documents/FranciscoMarin_CVES.pdf" download>Descargar CV</a>
