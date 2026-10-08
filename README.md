@@ -1,4 +1,4 @@
-# Portafolio web · Francisco Marín-Castillo
+# Portafolio web · Francisco Marin Castillo
 
 Mi portafolio personal: un sitio estático, sin frameworks ni dependencias, donde presento mis proyectos de inteligencia artificial, desarrollo web y automatización industrial.
 
@@ -76,4 +76,4 @@ El sitio se publica en Cloudflare Workers como un Worker de assets estáticos, c
 
 ---
 
-© 2026 Francisco Marín-Castillo. Todos los derechos reservados.
+© 2026 Francisco Marin Castillo. Todos los derechos reservados.
