@@ -62,6 +62,7 @@
 
   <script src="theme-init.js"></script>
   <link rel="stylesheet" href="styles.css">
+  <link rel="preload" href="assets/fonts/fraunces-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
   <script src="script.js" defer></script>
 </head>
 
@@ -71,7 +72,7 @@
   <!-- ========== HEADER ========== -->
   <header class="site-header">
     <div class="container site-header__inner">
-      <a class="brand" href="#inicio">Francisco Marin Castillo</a>
+      <a class="brand" href="#inicio">Francisco Marin<span class="brand__last"> Castillo</span></a>
 
       <nav class="nav" id="menu-principal" aria-label="Navegación principal">
         <ul class="nav__list">
@@ -80,6 +81,7 @@
           <li><a class="nav__link" href="#proyectos-destacados">Proyectos</a></li>
           <li><a class="nav__link" href="#habilidades">Habilidades</a></li>
           <li><a class="nav__link" href="#contacto">Contacto</a></li>
+          <li class="nav__item--cv"><a class="nav__link" href="assets/documents/FranciscoMarin_CVES.pdf" download>Descargar CV</a></li>
         </ul>
       </nav>
 
@@ -113,7 +115,9 @@
           <p class="hero__text">
             Estudio en la Universidad Iberoamericana León y trabajo en la
             intersección de machine learning, desarrollo web y automatización
-            industrial. Me interesa construir sistemas que funcionen de punta a punta.
+            industrial. Mis proyectos van de un buscador semántico
+            de datos abiertos de León a un modelo que detecta fallas en fresadoras
+            y el sitio de mi banda.
           </p>
 
           <div class="hero__actions">
@@ -167,19 +171,19 @@
         <h3 class="section__subtitle">Lo que me define</h3>
         <dl class="traits">
           <div class="traits__item card">
-            <dt class="traits__term"><span aria-hidden="true">🧠</span> Aprendizaje continuo</dt>
+            <dt class="traits__term"><svg class="traits__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"/></svg> Aprendizaje continuo</dt>
             <dd class="traits__desc">Aprendo React y TypeScript construyendo proyectos reales</dd>
           </div>
           <div class="traits__item card">
-            <dt class="traits__term"><span aria-hidden="true">⚙️</span> Enfoque práctico</dt>
+            <dt class="traits__term"><svg class="traits__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> Enfoque práctico</dt>
             <dd class="traits__desc">Me gusta llevar las ideas a algo desplegado y funcionando</dd>
           </div>
           <div class="traits__item card">
-            <dt class="traits__term"><span aria-hidden="true">🎸</span> Trabajo en equipo</dt>
+            <dt class="traits__term"><svg class="traits__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Trabajo en equipo</dt>
             <dd class="traits__desc">Coordino proyectos, desde sistemas de software hasta eventos musicales</dd>
           </div>
           <div class="traits__item card">
-            <dt class="traits__term"><span aria-hidden="true">🌎</span> Idiomas</dt>
+            <dt class="traits__term"><svg class="traits__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Idiomas</dt>
             <dd class="traits__desc">Español nativo, inglés B2</dd>
           </div>
         </dl>
@@ -193,33 +197,42 @@
         <p class="section__intro">Una selección de proyectos académicos, de servicio social y personales.</p>
 
         <div class="projects">
-          <article class="card project">
-            <h3 class="project__title">Motor de búsqueda semántica de datos abiertos</h3>
-            <p class="project__text">
-              Página web con búsqueda semántica para el catálogo de datos abiertos
-              del gobierno municipal de León, Guanajuato. Permite encontrar datasets
-              con consultas en lenguaje coloquial.
-            </p>
-            <h4 class="project__label">Tecnologías usadas</h4>
-            <ul class="chips">
-              <li class="chips__item">Python y FastAPI</li>
-              <li class="chips__item">ChromaDB y Sentence Transformers</li>
-              <li class="chips__item">JavaScript vanilla</li>
-              <li class="chips__item">Docker y Azure Container Apps</li>
-            </ul>
-            <a class="project__link" href="https://buscador.frankmarincas.dev"
-              target="_blank" rel="noopener">Ver prototipo ↗</a>
+          <article class="card project project--featured">
+            <figure class="project__media">
+              <img src="assets/images/proyectos/buscador.webp" alt="Resultados del buscador para la consulta «camiones»: cruceros viales peligrosos y red de ciclovías"
+                width="1200" height="616" loading="lazy">
+            </figure>
+            <div class="project__body">
+              <p class="project__eyebrow">Proyecto destacado</p>
+              <h3 class="project__title">Motor de búsqueda semántica de datos abiertos</h3>
+              <p class="project__text">
+                Página web con búsqueda semántica para el catálogo de datos abiertos
+                del gobierno municipal de León, Guanajuato. Permite encontrar datasets
+                con consultas en lenguaje coloquial.
+              </p>
+              <ul class="chips" aria-label="Tecnologías">
+                <li class="chips__item">Python y FastAPI</li>
+                <li class="chips__item">ChromaDB y Sentence Transformers</li>
+                <li class="chips__item">JavaScript vanilla</li>
+                <li class="chips__item">Docker y Azure Container Apps</li>
+              </ul>
+              <a class="project__link" href="https://buscador.frankmarincas.dev"
+                target="_blank" rel="noopener">Ver prototipo ↗</a>
+            </div>
           </article>
 
           <article class="card project">
+            <figure class="project__thumb">
+              <img src="assets/images/proyectos/yumana.webp" alt="Panel principal de YUMANA con las tablas de servicios: canalización, orientación, psicología y trabajo social"
+                width="800" height="498" loading="lazy">
+            </figure>
             <h3 class="project__title">YUMANA - Sistema de gestión de personas usuarias</h3>
             <p class="project__text">
               Proyecto de servicio social. Plataforma web que reemplaza el seguimiento
               en hojas de cálculo, con control de acceso por roles y niveles de
               confidencialidad. Me encargo del frontend.
             </p>
-            <h4 class="project__label">Tecnologías usadas</h4>
-            <ul class="chips">
+            <ul class="chips" aria-label="Tecnologías">
               <li class="chips__item">React, TypeScript y Vite</li>
               <li class="chips__item">Tailwind CSS y HeroUI</li>
               <li class="chips__item">Diseño de interfaces en Figma</li>
@@ -227,29 +240,41 @@
           </article>
 
           <article class="card project">
+            <div class="project__thumb project__stat" aria-hidden="true">
+              <div class="project__stat-row">
+                <span class="project__stat-pair"><span class="project__stat-value">75%</span><span class="project__stat-label">recall</span></span>
+                <span class="project__stat-pair"><span class="project__stat-value">58%</span><span class="project__stat-label">precisión</span></span>
+              </div>
+              <span class="project__stat-label">F1 0.65 · tasa de falla 3.4%</span>
+            </div>
             <h3 class="project__title">Detección de fallas en fresadoras con Random Forest</h3>
             <p class="project__text">
-              Modelo de machine learning para detectar fallas en fresadoras, con
-              75% de recall sobre una tasa de falla de 3.4%, usando GridSearchCV y
-              bootstrapping de 1000 iteraciones.
+              Modelo para detectar fallas en fresadoras con solo 3.4% de casos de
+              falla. Comparé regresión logística, SVM y Random Forest: los dos
+              primeros detectaban más fallas, pero con 14% y 27% de precisión daban
+              demasiadas falsas alarmas. Random Forest logró el mejor balance:
+              75% de recall y 58% de precisión (F1 de 0.65).
             </p>
-            <h4 class="project__label">Tecnologías usadas</h4>
-            <ul class="chips">
+            <ul class="chips" aria-label="Tecnologías">
               <li class="chips__item">Python</li>
-              <li class="chips__item">scikit-learn (Random Forest, GridSearchCV)</li>
+              <li class="chips__item">scikit-learn (Random Forest, SVM, regresión logística)</li>
+              <li class="chips__item">GridSearchCV y bootstrapping</li>
             </ul>
             <a class="project__link" href="https://github.com/FMarin2401/ProyectoFresadoras" target="_blank"
               rel="noopener">Ver repositorio ↗</a>
           </article>
 
           <article class="card project">
+            <figure class="project__thumb">
+              <img src="assets/images/proyectos/acids.webp" alt="Portada del sitio de Acids con el logotipo de la banda y botones para escuchar, descargar el press kit y contratar"
+                width="800" height="500" loading="lazy">
+            </figure>
             <h3 class="project__title">Acids - Sitio web y EPK de mi banda</h3>
             <p class="project__text">
               Sitio web y press kit profesional para mi banda de rock: música,
               shows, galería y descargas para prensa y promotores.
             </p>
-            <h4 class="project__label">Tecnologías usadas</h4>
-            <ul class="chips">
+            <ul class="chips" aria-label="Tecnologías">
               <li class="chips__item">HTML5 y CSS3</li>
               <li class="chips__item">JavaScript vanilla</li>
               <li class="chips__item">Cloudflare</li>

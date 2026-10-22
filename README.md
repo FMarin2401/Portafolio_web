@@ -36,6 +36,7 @@ Lo construí a mano con HTML, CSS y JavaScript para practicar buenas prácticas 
 - **Tokens de diseño en `:root`**: colores, espaciado y radios viven en variables. El tema oscuro solo redefine esos valores, sin tocar los componentes.
 - **BEM**: todas las clases tienen el mismo peso de especificidad, lo que evita guerras de estilos y hace el CSS predecible (`.project__title`, `.button--primary`).
 - **`theme-init.js` sin `defer`**: se ejecuta antes del primer pintado para evitar el parpadeo del tema equivocado al cargar.
+- **Tipografía alojada en el sitio**: los títulos usan Fraunces (variable, 36 KB) servida desde `assets/fonts/`, sin Google Fonts. Carga más rápido y respeta la CSP, que solo permite recursos propios.
 - **Mejora progresiva**: el menú móvil solo se oculta si JavaScript está activo; sin JS, sigue siendo navegable.
 
 ## Estructura
@@ -53,6 +54,7 @@ Lo construí a mano con HTML, CSS y JavaScript para practicar buenas prácticas 
 │   ├── robots.txt
 │   ├── sitemap.xml
 │   └── assets/
+│       ├── fonts/
 │       ├── images/
 │       └── documents/
 ├── wrangler.jsonc          # Configuración de Cloudflare
