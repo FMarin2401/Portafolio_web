@@ -17,7 +17,9 @@ Lo construí a mano con HTML, CSS y JavaScript para practicar buenas prácticas 
 - **Navegación que sigue el scroll**: el menú resalta la sección que estás viendo.
 - **Diseño responsive**, pensado desde pantallas pequeñas hasta escritorio.
 - **Accesible**: HTML semántico, enlace para saltar al contenido, estados ARIA y respeto a `prefers-reduced-motion`.
-- **Ligero**: sin librerías, sin paso de compilación.
+- **Bilingüe**: versión en español (`/`) y en inglés (`/en/`), enlazadas con `hreflang`.
+- **Ligero**: sin librerías, sin paso de compilación. La foto del hero pesa menos de 30 KB (WebP).
+- **Seguro**: cabeceras de seguridad (CSP, HSTS, `nosniff`) y página 404 propia.
 
 ## Tecnologías
 
@@ -41,7 +43,10 @@ Lo construí a mano con HTML, CSS y JavaScript para practicar buenas prácticas 
 ```
 .
 ├── public/                 # Todo lo que se publica
-│   ├── index.html
+│   ├── index.html          # Versión en español
+│   ├── en/index.html       # Versión en inglés
+│   ├── 404.html
+│   ├── _headers            # Cabeceras de seguridad (Cloudflare)
 │   ├── styles.css
 │   ├── script.js           # Menú, tema y sección activa
 │   ├── theme-init.js       # Aplica el tema antes de pintar

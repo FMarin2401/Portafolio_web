@@ -171,6 +171,15 @@ em { color: var(--color-walnut); font-style: normal; font-weight: 600; }
 .icon-button:hover { background: var(--color-sand); }
 .js .theme-toggle { display: inline-flex; }
 
+/* Cambio de idioma: es un enlace, funciona sin JS */
+.lang-switch {
+  display: inline-flex;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .03em;
+}
+.lang-switch:hover { text-decoration: none; }
+
 /* Icono del cambio de tema */
 .theme-toggle::before { content: "🌙"; }
 :root[data-theme="dark"] .theme-toggle::before { content: "☀️"; }
